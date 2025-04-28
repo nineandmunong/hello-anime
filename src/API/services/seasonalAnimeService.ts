@@ -8,14 +8,19 @@ export default async function seasonalAnimeService(): Promise<
   SeasonalAnimeTypes[]
 > {
   try {
-    const seasonalUrl = "https://api.jikan.moe/v4/seasons/2025/winter"
+    const seasonalUrl = "https://api.jikan.moe/v4/seasons/2025/spring"
     const response = await axios.get<SeasonalAnimeResponse>(seasonalUrl)
 
-    const seasonalAnime = response.data.data
+    const rawAnime = response.data.data
+
+    const seasonalAnime = rawAnime.filter(
+      (item, index, self) =>
+        index === self.findIndex((a) => a.mal_id === item.mal_id)
+    )
 
     const sortedAnime = seasonalAnime
-      .filter((item: SeasonalAnimeTypes) => item.score !== null)
-      .sort((a: SeasonalAnimeTypes, b: SeasonalAnimeTypes) => b.score - a.score)
+      .filter((item: SeasonalAnimeTypes) => item.rank !== null)
+      .sort((a: SeasonalAnimeTypes, b: SeasonalAnimeTypes) => a.rank - b.rank)
 
     return sortedAnime
   } catch (error) {
