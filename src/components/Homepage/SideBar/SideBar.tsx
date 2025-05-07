@@ -1,104 +1,140 @@
+import { useState } from "react"
+import { useNavigate, useSearchParams } from "react-router-dom"
+
 export default function SideBar() {
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+
+  const seasons = ["winter", "spring", "summer", "fall"]
+  const currentYear = new Date().getFullYear()
+  const years = Array.from({ length: 6 }, (_, i) => currentYear - i)
+
+  const [selectedSeason, setSelectedSeason] = useState(
+    searchParams.get("season") || "spring"
+  )
+  const [selectedYear, setSelectedYear] = useState(
+    parseInt(searchParams.get("year") || "2025")
+  )
+  const [seasonDropdownOpen, setSeasonDropdownOpen] = useState(false)
+  const [yearDropdownOpen, setYearDropdownOpen] = useState(false)
+
+  const handleSeasonChange = (season: string) => {
+    setSelectedSeason(season)
+    navigate(`/?season=${season}&year=${selectedYear}`)
+    setSeasonDropdownOpen(false)
+  }
+
+  const handleYearChange = (year: number) => {
+    setSelectedYear(year)
+    navigate(`/?season=${selectedSeason}&year=${year}`)
+    setYearDropdownOpen(false)
+  }
+
+  // กดข้างนอกปิด Dropdown ได้
+  const handleClickOutside = () => {
+    setSeasonDropdownOpen(false)
+    setYearDropdownOpen(false)
+  }
+
   return (
     <div
-      className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-      style={{ width: "280px" }}
+      className="d-flex flex-column p-3 text-bg-dark"
+      style={{ width: "280px", marginTop: "40px" }}
+      onClick={(e) => e.stopPropagation()}
     >
-      <a
-        href="/"
-        className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
-      >
-        <svg className="bi pe-none me-2" width="40" height="32">
-          <use xlinkHref="#bootstrap" />
-        </svg>
-        <span className="fs-4">Sidebar</span>
-      </a>
-      <hr />
-      <ul className="nav nav-pills flex-column mb-auto">
-        <li className="nav-item">
-          <a href="#" className="nav-link active" aria-current="page">
-            <svg className="bi pe-none me-2" width="16" height="16">
-              <use xlinkHref="#home" />
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi pe-none me-2" width="16" height="16">
-              <use xlinkHref="#speedometer2" />
-            </svg>
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi pe-none me-2" width="16" height="16">
-              <use xlinkHref="#table" />
-            </svg>
-            Orders
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi pe-none me-2" width="16" height="16">
-              <use xlinkHref="#grid" />
-            </svg>
-            Products
-          </a>
-        </li>
-        <li>
-          <a href="#" className="nav-link text-white">
-            <svg className="bi pe-none me-2" width="16" height="16">
-              <use xlinkHref="#people-circle" />
-            </svg>
-            Customers
-          </a>
-        </li>
-      </ul>
-      <hr />
-      <div className="dropdown">
-        <a
-          href="#"
-          className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <img
-            src="https://github.com/mdo.png"
-            alt=""
-            width="32"
-            height="32"
-            className="rounded-circle me-2"
-          />
-          <strong>mdo</strong>
-        </a>
-        <ul className="dropdown-menu dropdown-menu-dark text-small shadow">
-          <li>
-            <a className="dropdown-item" href="#">
-              New project...
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Settings
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Profile
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Sign out
-            </a>
-          </li>
-        </ul>
+      <div className="fs-4" style={{ cursor: "default" }}>
+        Filter
       </div>
+      <hr />
+      <div className="mb-3">
+        <h5 style={{ cursor: "default" }}>Season</h5>
+        <div className="position-relative">
+          <button
+            className="btn btn-secondary w-100 d-flex justify-content-between align-items-center"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setSeasonDropdownOpen(!seasonDropdownOpen)
+              setYearDropdownOpen(false)
+            }}
+          >
+            {selectedSeason.charAt(0).toUpperCase() + selectedSeason.slice(1)}
+            <span className="ms-2">▼</span>
+          </button>
+          {seasonDropdownOpen && (
+            <ul
+              className="list-group position-absolute w-100 mt-1"
+              style={{ zIndex: 1000 }}
+            >
+              {seasons.map((season) => (
+                <li
+                  key={season}
+                  className={`list-group-item ${
+                    selectedSeason === season ? "active" : ""
+                  }`}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleSeasonChange(season)}
+                >
+                  {season.charAt(0).toUpperCase() + season.slice(1)}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <div className="mb-3">
+        <h5 className="text-white" style={{ cursor: "default" }}>
+          Year
+        </h5>
+        <div className="position-relative">
+          <button
+            className="btn btn-secondary w-100 d-flex justify-content-between align-items-center"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation()
+              setYearDropdownOpen(!yearDropdownOpen)
+              setSeasonDropdownOpen(false)
+            }}
+          >
+            {selectedYear}
+            <span className="ms-2">▼</span>
+          </button>
+          {yearDropdownOpen && (
+            <ul
+              className="list-group position-absolute w-100 mt-1"
+              style={{ zIndex: 1000 }}
+            >
+              {years.map((year) => (
+                <li
+                  key={year}
+                  className={`list-group-item ${
+                    selectedYear === year ? "active" : ""
+                  }`}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleYearChange(year)}
+                >
+                  {year}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <hr />
+      //กดข้างนอกปิด Dropdown
+      {(seasonDropdownOpen || yearDropdownOpen) && (
+        <div
+          onClick={handleClickOutside}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            zIndex: 999,
+          }}
+        />
+      )}
     </div>
   )
 }

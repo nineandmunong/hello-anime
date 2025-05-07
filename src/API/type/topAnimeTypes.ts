@@ -1,3 +1,16 @@
+export interface TopAnimeResponse {
+  data: TopAnimeTypes[]
+  pagination: {
+    last_visible_page: number
+    has_next_page: boolean
+    items: {
+      count: number
+      total: number
+      per_page: number
+    }
+  }
+}
+
 export interface TopAnimeTypes {
   mal_id: number
   url: string
@@ -101,17 +114,4 @@ export interface TopAnimeTypes {
     name: string
     url: string
   }[]
-}
-
-export interface TopAnimeResponse {
-  data: TopAnimeTypes[]
-  pagination: {
-    last_visible_page: number
-    has_next_page: boolean
-    items: {
-      count: number
-      total: number
-      per_page: number
-    }
-  }
 }

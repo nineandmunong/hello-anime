@@ -1,3 +1,16 @@
+export interface SeasonalAnimeResponse {
+  data: SeasonalAnimeTypes[]
+  pagination: {
+    last_visible_page: number
+    has_next_page: boolean
+    items: {
+      count: number
+      total: number
+      per_page: number
+    }
+  }
+}
+
 export interface SeasonalAnimeTypes {
   mal_id: number
   url: string
@@ -109,17 +122,4 @@ export interface SeasonalAnimeTypes {
     name: string
     url: string
   }[]
-}
-
-export interface SeasonalAnimeResponse {
-  data: SeasonalAnimeTypes[]
-  pagination: {
-    last_visible_page: number
-    has_next_page: boolean
-    items: {
-      count: number
-      total: number
-      per_page: number
-    }
-  }
 }

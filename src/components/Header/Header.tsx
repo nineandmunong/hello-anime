@@ -1,4 +1,4 @@
-import logo from "../img/logo/logo1.png"
+import logo from "../../img/logo/logo1.png"
 
 export default function Header() {
   return (
@@ -31,23 +31,19 @@ export default function Header() {
       <div className="nav-scroller py-1 mb-3 border-bottom">
         <nav className="nav nav-underline justify-content-between">
           <a className="nav-item nav-link link-body-emphasis active" href="#">
-            World
+            Menu1
           </a>
           <a className="nav-item nav-link link-body-emphasis" href="#">
-            U.S.
+            Menu2
           </a>
           <a className="nav-item nav-link link-body-emphasis" href="#">
-            Technology
+            Menu3
           </a>
           <a className="nav-item nav-link link-body-emphasis" href="#">
-            Design
-          </a>
-
-          <a className="nav-item nav-link link-body-emphasis" href="#">
-            Style
+            Menu4
           </a>
           <a className="nav-item nav-link link-body-emphasis" href="#">
-            Travel
+            Menu5
           </a>
         </nav>
       </div>

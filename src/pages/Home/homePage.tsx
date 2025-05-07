@@ -11,36 +11,28 @@ export default function Home() {
   return (
     <div>
       {/* Carousel Section  */}
-      <div
-        className="container"
-        style={{
-          fontSize: "25px",
-        }}
-      >
+      <section>
         <div
           style={{
             fontWeight: "700",
             fontSize: "1.5rem",
             color: "#ff758c",
-            textShadow: "1px 1px 0px rgba(0,0,0,0.1)",
-            letterSpacing: "1px",
-            display: "inline-block",
-            position: "relative",
             paddingRight: "10px",
+            marginLeft: "100px",
           }}
         >
           Coming Soon...
         </div>
-      </div>
 
-      <section
-        className="d-flex align-items-center justify-content-center"
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        <Carousel />
+        <div
+          className="d-flex align-items-center justify-content-center"
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <Carousel />
+        </div>
       </section>
 
       {/*  Divider Image */}
@@ -60,7 +52,9 @@ export default function Home() {
               <SideBar />
             </div>
             <div className="col mx-5 py-5 ">
-              <div className="fs-3 mb-3">Anime Rank 👑</div>
+              <div className="fs-3 mb-3" style={{ cursor: "default" }}>
+                Anime Rank 👑
+              </div>
               <hr />
               <div className="container mt-3">
                 <SeasonalAnime anime={seasonalAnime} />

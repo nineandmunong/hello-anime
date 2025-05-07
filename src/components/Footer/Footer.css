@@ -1,0 +1,4 @@
+.footer-link:hover {
+  transform: translateY(-3px);
+  color: orangered !important;
+}

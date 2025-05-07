@@ -62,9 +62,10 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
               </div>
 
               <div>
-                {item.genres.map((genres) => (
+                {item.genres.slice(0, 3).map((genres) => (
                   <span
                     className="badge rounded-pill text-white"
+                    key={genres.name}
                     style={{
                       backgroundColor: colors[genres.name] || "#7f8c8d",
                       fontSize: "12px",

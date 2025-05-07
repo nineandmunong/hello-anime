@@ -1,8 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import Root from "./pages/Root"
+import Root from "./Root"
 import HomePage from "./pages/Home/homePage"
 import { homeLoader } from "./pages/Home/homeLoader"
-import { Suspense } from "react"
 
 const router = createBrowserRouter([
   {
@@ -19,11 +18,7 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  return (
-    <Suspense fallback={<p>Loading...</p>}>
-      <RouterProvider router={router} />
-    </Suspense>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

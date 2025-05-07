@@ -4,13 +4,13 @@ import {
   SeasonalAnimeTypes,
 } from "../type/seasonalAnimeType"
 
-export default async function seasonalAnimeService(): Promise<
-  SeasonalAnimeTypes[]
-> {
+export default async function seasonalAnimeService(
+  season: string,
+  year: number
+): Promise<SeasonalAnimeTypes[]> {
   try {
-    const seasonalUrl = "https://api.jikan.moe/v4/seasons/2025/spring"
+    const seasonalUrl = `https://api.jikan.moe/v4/seasons/${year}/${season}`
     const response = await axios.get<SeasonalAnimeResponse>(seasonalUrl)
-
     const rawAnime = response.data.data
 
     const seasonalAnime = rawAnime.filter(
