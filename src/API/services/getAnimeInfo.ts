@@ -29,7 +29,7 @@ export default async function getAnimeInfo(
     )
 
     if (i + batchSize < ids.length) {
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      await new Promise((resolve) => setTimeout(resolve, 3500))
     }
   }
 

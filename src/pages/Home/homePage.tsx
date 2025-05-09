@@ -5,7 +5,7 @@ import { HomeLoaderResult } from "./homeLoader"
 import SideBar from "../../components/Homepage/SideBar/SideBar"
 import SeasonalAnime from "../../components/Homepage/seasonalAnime/seasonalAnime"
 
-export default function Home() {
+export default function HomePage() {
   const { seasonalAnime } = useLoaderData() as HomeLoaderResult
 
   return (
