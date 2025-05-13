@@ -15,7 +15,7 @@ export default async function topAnimeService(): Promise<TopAnimeTypes[]> {
 
     return topAnime
   } catch (error) {
-    console.error("Error fetching upcoming data:", error)
+    console.error("Error fetching TopAnime:", error)
     throw error
   }
 }

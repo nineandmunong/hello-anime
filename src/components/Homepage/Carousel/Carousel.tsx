@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "./Carousel.css"
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
 import upComingServices from "../../../API/services/upComingService"
-import getAnimeInfo from "../../../API/services/getAnimeInfo"
+import getAnimeInfo from "../../../API/services/animeInfoService"
 import { AnimeInfoType } from "../../../API/type/animeInfoType"
 
 export default function Carousel() {

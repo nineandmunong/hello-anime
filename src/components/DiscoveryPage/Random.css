@@ -1,0 +1,9 @@
+.humenAnimated {
+  animation: humen 2s infinite;
+}
+
+@keyframes humen {
+  50% {
+    transform: rotate(180deg);
+  }
+}

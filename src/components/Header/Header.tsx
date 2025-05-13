@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import logo from "../../img/logo/logo1.png"
 
 export default function Header() {
@@ -10,13 +11,13 @@ export default function Header() {
           </a>
         </div>
         <div className="col-4 text-center">
-          <a
+          <Link
             className="blog-header-logo text-decoration-none"
-            href="#"
             style={{ color: "orange" }}
+            to="/"
           >
             <img src={logo} style={{ height: "50px" }} />
-          </a>
+          </Link>
         </div>
         <div className="col-4 d-flex justify-content-end align-items-center column-gap-2">
           <a className="btn btn-sm btn-outline-danger" href="#">
@@ -30,12 +31,16 @@ export default function Header() {
 
       <div className="nav-scroller py-1 mb-3 border-bottom">
         <nav className="nav nav-underline justify-content-between">
-          <a className="nav-item nav-link link-body-emphasis active" href="#">
-            Menu1
-          </a>
-          <a className="nav-item nav-link link-body-emphasis" href="#">
-            Menu2
-          </a>
+          <Link className="nav-item nav-link link-body-emphasis" to="/">
+            Home
+          </Link>
+          <Link
+            className="nav-item nav-link link-body-emphasis"
+            to="/discovery"
+          >
+            Discovery
+          </Link>
+
           <a className="nav-item nav-link link-body-emphasis" href="#">
             Menu3
           </a>
