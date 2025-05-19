@@ -16,14 +16,14 @@ export default async function getAnimeInfo(
       try {
         const response = await axios.get(`https://api.jikan.moe/v4/anime/${id}`)
         animeInfo.push(response.data)
-        /* await delay(1200) // หน่วงประมาณ 1.2 วินาทีต่อ request */
+        await delay(300) // เวลาหน่วงต่อ request
       } catch (error) {
         console.error(`Error fetching anime ID ${id}:`, error)
       }
     }
 
     if (i + batchSize < ids.length) {
-      await delay(3000) // หน่วงระหว่าง batch
+      await delay(1000) // หน่วงระหว่าง batch
     }
   }
 
