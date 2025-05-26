@@ -2,42 +2,18 @@ import { useEffect, useState } from "react"
 import "./Carousel.css"
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react"
 import upComingServices from "../../../API/services/upComingService"
-import getAnimeInfo from "../../../API/services/animeInfoService"
-import { AnimeInfoType } from "../../../API/type/animeInfoType"
 
 export default function Carousel() {
   const [imageIndex, setImageIndex] = useState(0)
-  const [malId, setMalId] = useState<number[]>([])
-  const [animeInfo, setAnimeInfo] = useState<AnimeInfoType[]>([])
   const [images, setImages] = useState<string[]>([])
 
   useEffect(() => {
-    async function getId() {
-      const id = await upComingServices()
-      setMalId(id)
+    const fetchImages = async () => {
+      const img = await upComingServices()
+      setImages(img)
     }
-    getId()
+    fetchImages()
   }, [])
-
-  useEffect(() => {
-    if (malId.length > 0) {
-      async function fetchAnimeInfo() {
-        const info = await getAnimeInfo(malId)
-        setAnimeInfo(info)
-      }
-      fetchAnimeInfo()
-    }
-  }, [malId])
-
-  useEffect(() => {
-    if (animeInfo.length > 0) {
-      setImages(
-        animeInfo.map(
-          (info) => info.data.trailer?.images.maximum_image_url || ""
-        )
-      )
-    }
-  }, [animeInfo])
 
   function prevImage() {
     setImageIndex((index) => {

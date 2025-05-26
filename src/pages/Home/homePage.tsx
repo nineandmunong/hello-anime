@@ -13,34 +13,29 @@ export default function HomePage() {
       {/* Carousel Section  */}
       <section>
         <div
+          className="ms-md-5 ms-4 ps-lg-5 "
           style={{
             fontWeight: "700",
             fontSize: "1.5rem",
             color: "#ff758c",
             paddingRight: "10px",
-            marginLeft: "100px",
           }}
         >
           Coming Soon...
         </div>
 
-        <div
-          className="d-flex align-items-center justify-content-center"
-          style={{
-            width: "100%",
-            height: "100%",
-          }}
-        >
+        <div className="d-flex justify-content-center">
           <Carousel />
         </div>
       </section>
 
       {/*  Divider Image */}
-      <div>
+      <div className="text-center my-4 mb-lg-5">
         <img
           src={line}
           alt=""
-          style={{ width: "500px", height: "30px", margin: "0 0 30px 35%" }}
+          style={{ maxWidth: "30%" }}
+          className="img-fluid"
         />
       </div>
 
@@ -48,15 +43,15 @@ export default function HomePage() {
       <section className="bg-dark px-1 text-white">
         <div className="m-1">
           <div className="row">
-            <div className="col-2 ">
+            <div className="col-12 col-md-2 mt-5 pt-2 ps-2">
               <SideBar />
             </div>
-            <div className="col mx-5 py-5 ">
+            <div className="col mt-5">
               <div className="fs-3 mb-3" style={{ cursor: "default" }}>
                 Anime Rank 👑
               </div>
               <hr />
-              <div className="container mt-3">
+              <div className="container mt-3 mb-3">
                 <SeasonalAnime anime={seasonalAnime} />
               </div>
             </div>
@@ -66,3 +61,4 @@ export default function HomePage() {
     </div>
   )
 }
+//save

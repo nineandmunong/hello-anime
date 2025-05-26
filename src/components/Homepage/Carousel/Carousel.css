@@ -4,7 +4,7 @@
 
 .slide {
   position: relative;
-  width: 80%;
+  width: 90%;
   height: 90%;
   scale: 0.9;
 }
@@ -72,4 +72,24 @@
 .imgSlideBtn > * {
   fill: black;
   stroke: white;
+}
+
+@media (max-width: 768px) {
+  .slideBtn > * {
+    width: 25px;
+  }
+
+  .slideBtn {
+    width: 40px; /* ลดความกว้างของปุ่ม */
+  }
+
+  .selectSlideBtn {
+    bottom: 12%;
+    left: 30%;
+    gap: 10%;
+  }
+
+  .imgSlideBtn {
+    scale: 0.7;
+  }
 }

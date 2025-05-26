@@ -38,8 +38,7 @@ export default function SideBar() {
 
   return (
     <div
-      className="d-flex flex-column p-3 text-bg-dark"
-      style={{ width: "280px", marginTop: "40px" }}
+      className="d-flex flex-column text-bg-dark"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="fs-4" style={{ cursor: "default" }}>
@@ -121,7 +120,7 @@ export default function SideBar() {
         </div>
       </div>
       <hr />
-      //กดข้างนอกปิด Dropdown
+
       {(seasonDropdownOpen || yearDropdownOpen) && (
         <div
           onClick={handleClickOutside}

@@ -1,20 +1,20 @@
+import type { UpComingResponse } from "../type/upComingTypes"
 import axios from "axios"
-import type { UpComingType } from "../type/upComingTypes"
 
-export default async function upComingServices(): Promise<number[]> {
+export default async function upComingServices(): Promise<string[]> {
   try {
-    const upComingUrl = "https://api.jikan.moe/v4/seasons/upcoming"
-    const response = await axios.get(upComingUrl, {
-      params: { limit: 5 },
-    })
+    const response = await axios.get<UpComingResponse>(
+      "https://api.jikan.moe/v4/seasons/upcoming"
+    )
 
-    const mal_id = response.data.data.map((upComing: UpComingType) => {
-      return upComing.mal_id
-    })
+    const images = response.data.data
+      .map((anime) => anime.trailer.images.maximum_image_url)
+      .filter(Boolean)
 
-    return mal_id
-  } catch (error) {
-    console.error("Error fetching upcoming data:", error)
-    throw error
+    const uniqueImages = Array.from(new Set(images))
+    return uniqueImages.slice(0, 10)
+  } catch (err) {
+    console.error("fetchUpComingImageError", err)
+    return []
   }
 }

@@ -16,16 +16,27 @@ const colors: { [key: string]: string } = {
 
 export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 ">
+    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 ">
       {anime.map((item, index) => (
         <div className="col d-flex" key={item.mal_id}>
           <div className="card h-100 w-100 d-flex flex-column">
-            <img
-              src={item.images.jpg.large_image_url}
+            <div
               className="card-img-top"
-              alt={item.title}
-              style={{ height: "350px", objectFit: "cover", width: "100%" }}
-            />
+              style={{
+                aspectRatio: "2 / 3",
+                overflow: "hidden",
+              }}
+            >
+              <img
+                src={item.images.jpg.large_image_url}
+                alt={item.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
 
             <div
               className="card-body d-flex justify-content-center align-items-center"
