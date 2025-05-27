@@ -7,7 +7,7 @@ export interface HomeLoaderResult {
   year: number
 }
 
-export async function homeLoader({
+export async function HomeLoader({
   request,
 }: {
   request: Request

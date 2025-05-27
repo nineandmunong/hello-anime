@@ -2,6 +2,7 @@ import { FaFacebook, FaInstagram, FaEnvelope } from "react-icons/fa"
 import { IoCall } from "react-icons/io5"
 import logo from "../../img/logo/logo1.png"
 import "./Footer.css"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -42,36 +43,36 @@ export default function Footer() {
             <h5 className="mb-3">Quick Links</h5>
             <ul className="flex-column align-items-center list-unstyled d-flex">
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="text-light text-decoration-none footer-link"
+                <Link
+                  className="text-light text-decoration-none footer-link "
+                  to="/"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="text-light text-decoration-none footer-link"
+                <Link
+                  className="text-light text-decoration-none footer-link "
+                  to="/discovery"
                 >
-                  About Us
-                </a>
+                  Discovery
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="text-light text-decoration-none footer-link"
+                <Link
+                  className="text-light text-decoration-none footer-link "
+                  to="/searchanime"
                 >
-                  Top Anime
-                </a>
+                  SearchAnime
+                </Link>
               </li>
               <li className="mb-2">
-                <a
-                  href="#"
-                  className="text-light text-decoration-none footer-link"
+                <Link
+                  className="text-light text-decoration-none footer-link "
+                  to="/home"
                 >
-                  Seasonal
-                </a>
+                  Home
+                </Link>
               </li>
             </ul>
           </div>

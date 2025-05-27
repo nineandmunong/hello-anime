@@ -1,1 +1,1 @@
-export default function discoveryLoader() {}
+export default function DiscoveryLoader() {}

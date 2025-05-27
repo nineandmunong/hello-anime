@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom"
 import Carousel from "../../components/Homepage/Carousel/Carousel"
 import line from "../../img/gif_a.png"
-import { HomeLoaderResult } from "./homeLoader"
+import { HomeLoaderResult } from "./HomeLoader"
 import SideBar from "../../components/Homepage/SideBar/SideBar"
 import SeasonalAnime from "../../components/Homepage/seasonalAnime/seasonalAnime"
 
@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* Carousel Section  */}
       <section>
         <div
-          className="ms-md-5 ms-4 ps-lg-5 "
+          className="ms-md-5 ms-4 ps-lg-5 pt-3"
           style={{
             fontWeight: "700",
             fontSize: "1.5rem",

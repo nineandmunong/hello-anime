@@ -51,9 +51,9 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link link-body-emphasis" href="#">
-                Menu3
-              </a>
+              <Link className="nav-link link-body-emphasis" to="/searchanime">
+                SearchAnime
+              </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link link-body-emphasis" href="#">
