@@ -5,7 +5,6 @@ import { HomeLoader } from "./pages/Home/HomeLoader"
 import DiscoveryPage from "./pages/Discovery/DiscoveryPage"
 import DiscoveryLoader from "./pages/Discovery/DiscoveryLoader"
 import SearchAnimePage from "./pages/SearchAnime/SearchAnimePage"
-import SearchAnimeLoader from "./pages/SearchAnime/SearchAnimeLoader"
 
 const router = createBrowserRouter([
   {
@@ -25,7 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/searchanime",
         element: <SearchAnimePage />,
-        loader: SearchAnimeLoader,
       },
     ],
   },

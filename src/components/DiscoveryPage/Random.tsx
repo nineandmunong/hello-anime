@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { animeRandomType } from "../../API/type/animeRandomtype"
+import { animeRandomType } from "../../API/type/animeRandomType"
 import animeRandomService from "../../API/services/animeRandomService"
 import humen from "../../img/humen.png"
 import spinner from "../../img/spinner.png"

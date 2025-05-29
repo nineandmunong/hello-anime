@@ -1,16 +1,18 @@
-import { animeRandomType } from "../type/animeRandomtype"
+import axios from "axios"
+import { animeRandomType } from "../type/animeRandomType"
 
-const animeRandomService = async (): Promise<animeRandomType> => {
+export default async function animeRandomService(): Promise<animeRandomType> {
   const MAX_ATTEMPTS = 10
   let attempt = 0
 
   while (attempt < MAX_ATTEMPTS) {
-    const response = await fetch("https://api.jikan.moe/v4/random/anime")
-    const result: animeRandomType = await response.json()
+    const response = await axios.get<animeRandomType>(
+      "https://api.jikan.moe/v4/random/anime"
+    )
+    const hasTrailer = response?.data?.data?.trailer?.embed_url
 
-    const hasTrailer = result?.data?.trailer?.embed_url
     if (hasTrailer) {
-      return result
+      return response.data
     }
 
     attempt++
@@ -18,5 +20,3 @@ const animeRandomService = async (): Promise<animeRandomType> => {
 
   throw new Error("Could not find anime with a trailer after 10 attempts")
 }
-
-export default animeRandomService
