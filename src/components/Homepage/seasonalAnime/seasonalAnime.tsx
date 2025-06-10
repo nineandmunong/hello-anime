@@ -1,4 +1,5 @@
 import { SeasonalAnimeTypes } from "../../../API/type/seasonalAnimeType"
+import "./seasonalAnime.css"
 
 interface SeasonalAnimeProps {
   anime: SeasonalAnimeTypes[]
@@ -19,7 +20,7 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 ">
       {anime.map((item, index) => (
         <div className="col d-flex" key={item.mal_id}>
-          <div className="card h-100 w-100 d-flex flex-column">
+          <div className="card h-100 w-100 d-flex flex-column anime-card">
             <div
               className="card-img-top"
               style={{
@@ -37,10 +38,9 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
                 }}
               />
             </div>
-
             <div
               className="card-body d-flex justify-content-center align-items-center"
-              style={{ paddingBottom: "5px" }}
+              style={{ paddingBottom: "3px", paddingTop: "8px" }}
             >
               <h5 className="card-title text-center"> {item.title} </h5>
             </div>

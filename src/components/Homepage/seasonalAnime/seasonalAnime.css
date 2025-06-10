@@ -1,0 +1,10 @@
+.anime-card {
+  transition: all 0.3s ease;
+  border: 2px solid whitesmoke;
+  cursor: pointer;
+}
+
+.anime-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border: 2px solid blue;
+}

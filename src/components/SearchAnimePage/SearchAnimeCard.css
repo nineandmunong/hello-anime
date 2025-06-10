@@ -1,0 +1,28 @@
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bounce {
+  transition: all 0.3s ease;
+}
+
+.bounce:hover {
+  transform: translateY(-5px);
+  transform: scale(1.02);
+}
+
+.detail-btn {
+  transition: all 1s ease;
+}
+
+.detail-btn:hover {
+  transform: translateY(-5px);
+  transform: scale(1.125);
+}

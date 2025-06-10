@@ -2,3 +2,9 @@
   transform: translateY(-3px);
   color: orangered !important;
 }
+
+.line-button {
+  font-size: 14px !important;
+  color: white !important;
+  background-color: #01b901 !important;
+}

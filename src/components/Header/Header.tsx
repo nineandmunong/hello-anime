@@ -42,27 +42,22 @@ export default function Header() {
           <ul className="navbar-nav nav-underline justify-content-between w-100">
             <li className="nav-item">
               <Link className="nav-link link-body-emphasis" to="/">
-                Home
+                🏠Home
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link link-body-emphasis" to="/discovery">
-                Discovery
+                🌏Discovery
               </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link link-body-emphasis" to="/searchanime">
-                SearchAnime
+                🔎Anime Search
               </Link>
             </li>
             <li className="nav-item">
               <a className="nav-link link-body-emphasis" href="#">
                 Menu4
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link link-body-emphasis" href="#">
-                Menu5
               </a>
             </li>
           </ul>

@@ -18,9 +18,10 @@ export default function Footer() {
                 Hello Anime
               </h5>
             </div>
-            <p className="text-white">
-              Your ultimate source for anime information, reviews, and upcoming
-              releases. Stay updated with the latest anime news and trends.
+            <p className="text-white pe-5">
+              Super website for ranking anime, more information, upcoming anime
+              and a little fun quiz. Stay updated with the latest anime and
+              trends.
             </p>
             <div className="d-flex gap-3">
               <a href="#" className="text-white fs-5 footer-link">
@@ -83,15 +84,23 @@ export default function Footer() {
             <p className="text-light">
               Get the latest updates on anime releases and news
             </p>
-            <div className="input-group mb-3">
+            <div className="input-group mb-4">
               <input
                 type="email"
                 className="form-control"
                 placeholder="Your email"
-                aria-label="Your email"
               />
               <button className="btn btn-warning" type="button">
                 Subscribe
+              </button>
+            </div>
+            <div className="d-flex align-items-center ">
+              <h5>or</h5>
+              <button
+                className="btn ms-3 py-1 border-0 text-center fw-bold line-button"
+                type="button"
+              >
+                LINE @
               </button>
             </div>
           </div>

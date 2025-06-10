@@ -30,7 +30,6 @@ export default function SideBar() {
     setYearDropdownOpen(false)
   }
 
-  // กดข้างนอกปิด Dropdown ได้
   const handleClickOutside = () => {
     setSeasonDropdownOpen(false)
     setYearDropdownOpen(false)
@@ -38,7 +37,7 @@ export default function SideBar() {
 
   return (
     <div
-      className="d-flex flex-column text-bg-dark"
+      className="d-flex flex-column text-bg-dark ps-2"
       onClick={(e) => e.stopPropagation()}
     >
       <div className="fs-4" style={{ cursor: "default" }}>
