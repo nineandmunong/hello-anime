@@ -23,18 +23,19 @@ export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
               cursor: "pointer",
             }}
           >
-            <div className="row h-100">
-              <div className="col-4 p-0">
+            <div className="d-flex flex-column flex-md-row h-100">
+              <div className="col-12 col-sm-4">
                 <div className="h-100 position-relative">
                   <img
-                    className="w-100 h-100"
+                    className="h-100 w-100"
                     src={animeItem.images.webp.large_image_url}
                     style={{
                       objectFit: "cover",
-                      borderRadius: "12px",
+                      borderRadius: "5px",
                     }}
                     alt={animeItem.title}
                   />
+
                   {animeItem.score && (
                     <div
                       className="position-absolute top-0 start-0 m-1 p-1"
@@ -51,9 +52,11 @@ export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
                 </div>
               </div>
 
-              <div className="col-8 p-0">
+              <div className="col-12 col-sm-8 p-0">
                 <div className="card-body h-100 d-flex flex-column">
-                  <h5 className="mb-2 fw-bold">{animeItem.title}</h5>
+                  <h5 className="mb-2 fw-bold fs-6 fs-md-5">
+                    {animeItem.title}
+                  </h5>
 
                   <div className="mb-3">
                     <span
@@ -89,7 +92,7 @@ export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
                       ? animeItem.synopsis.substring(0, 150) + "..."
                       : "No synopsis available."}
                   </p>
-                  <div className="mt-auto d-flex justify-content-end me-3">
+                  <div className="mt-auto d-flex justify-content-end">
                     <button
                       className="btn p-2 detail-btn"
                       style={{
