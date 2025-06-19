@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { AnimeData } from "../../API/type/searchAnimeType"
 import "../SearchAnimePage/SearchAnimeCard.css"
 
@@ -11,85 +12,53 @@ export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
       {data.map((animeItem, index) => (
         <div
           key={animeItem.mal_id}
-          className="col-12 col-md-6 col-lg-4 mb-3"
+          className="col-12 col-sm-6 col-lg-4 mb-4"
           style={{
-            borderRadius: "16px",
             animation: `cardIn 0.8s ease-in-out ${index * 0.1}s both`,
           }}
         >
-          <div
-            className="card h-100 shadow-sm bounce"
-            style={{
-              cursor: "pointer",
-            }}
+          <Link
+            to={`/detail/${animeItem.mal_id}`}
+            className="text-decoration-none text-dark"
           >
-            <div className="d-flex flex-column flex-md-row h-100">
-              <div className="col-12 col-sm-4">
-                <div className="h-100 position-relative">
+            <div
+              className="card h-100 shadow-sm bounce"
+              style={{
+                cursor: "pointer",
+                borderRadius: "8px",
+              }}
+            >
+              {/* Card ฝั่งซ้าย */}
+              <div className="d-flex flex-column flex-md-row h-100">
+                <div className="anime-card-image-wrapper">
                   <img
-                    className="h-100 w-100"
+                    className="anime-card-image"
                     src={animeItem.images.webp.large_image_url}
-                    style={{
-                      objectFit: "cover",
-                      borderRadius: "5px",
-                    }}
                     alt={animeItem.title}
                   />
-
                   {animeItem.score && (
-                    <div
-                      className="position-absolute top-0 start-0 m-1 p-1"
-                      style={{
-                        color: "white",
-                        backgroundColor: "rgba(32, 32, 32, 1)",
-                        borderRadius: "11px",
-                        fontSize: "11px",
-                      }}
-                    >
-                      🌟 {animeItem.score}
-                    </div>
+                    <div className="score-badge">🌟 {animeItem.score}</div>
                   )}
                 </div>
-              </div>
 
-              <div className="col-12 col-sm-8 p-0">
-                <div className="card-body h-100 d-flex flex-column">
-                  <h5 className="mb-2 fw-bold fs-6 fs-md-5">
-                    {animeItem.title}
-                  </h5>
+                {/* Card ฝั่งชวา */}
+                <div className="card-body d-flex flex-column p-3">
+                  <h5 className="mb-2 fw-bold fs-6">{animeItem.title}</h5>
 
-                  <div className="mb-3">
-                    <span
-                      className="badge me-2 "
-                      style={{
-                        backgroundColor: "rgba(199, 255, 181, 1)",
-                        color: "rgba(169, 4, 255, 1)",
-                        fontSize: "10px",
-                      }}
-                    >
+                  <div className="mb-2">
+                    <span className="badge me-2 badge-type">
                       {animeItem.type}
                     </span>
                     {animeItem.episodes && (
-                      <span
-                        className="badge"
-                        style={{
-                          backgroundColor: "rgba(192, 254, 255, 1)",
-                          color: "rgba(0, 175, 6, 1)",
-                          fontSize: "10px",
-                        }}
-                      >
+                      <span className="badge badge-episodes">
                         {animeItem.episodes} EP
                       </span>
                     )}
                   </div>
 
-                  <p
-                    style={{
-                      fontSize: "13px",
-                    }}
-                  >
+                  <p style={{ fontSize: "14px" }}>
                     {animeItem.synopsis
-                      ? animeItem.synopsis.substring(0, 150) + "..."
+                      ? animeItem.synopsis.substring(0, 120) + "..."
                       : "No synopsis available."}
                   </p>
                   <div className="mt-auto d-flex justify-content-end">
@@ -111,7 +80,7 @@ export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
                 </div>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       ))}
     </div>

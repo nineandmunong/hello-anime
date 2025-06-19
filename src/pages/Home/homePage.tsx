@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom"
 import Carousel from "../../components/Homepage/Carousel/Carousel"
 import line from "../../img/gif_a.png"
 import { HomeLoaderResult } from "./HomeLoader"
-import SideBar from "../../components/Homepage/SideBar/sideBar"
+import SideBar from "../../components/Homepage/SideBar/SideBar"
 import SeasonalAnime from "../../components/Homepage/seasonalAnime/seasonalAnime"
 
 export default function HomePage() {

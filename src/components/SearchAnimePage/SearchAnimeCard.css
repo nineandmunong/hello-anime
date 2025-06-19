@@ -15,14 +15,59 @@
 
 .bounce:hover {
   transform: translateY(-5px);
-  transform: scale(1.02);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 .detail-btn {
-  transition: all 1s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .detail-btn:hover {
-  transform: translateY(-5px);
-  transform: scale(1.125);
+  transform: scale(1.05);
+}
+
+.anime-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  flex-shrink: 0;
+}
+
+.anime-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.score-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: white;
+  background-color: rgba(32, 32, 32, 0.85);
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.badge-type {
+  background-color: rgb(230, 66, 255);
+  color: white;
+  font-size: 12px;
+}
+
+.badge-episodes {
+  background-color: rgb(56, 219, 221);
+  color: white;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .anime-card-image-wrapper {
+    width: 150px;
+  }
+
+  .anime-card-image {
+    border-radius: 8px 0 0 8px;
+  }
 }

@@ -6,18 +6,29 @@ import cat from "../../img/cat.gif"
 
 export default function SearchAnimePage() {
   const [searchTerm, setSearchTerm] = useState("")
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm)
   const [results, setResults] = useState<AnimeData[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    const timerId = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm)
+    }, 500)
+
+    return () => {
+      clearTimeout(timerId)
+    }
+  }, [searchTerm])
+
+  useEffect(() => {
     const fetchData = async () => {
-      if (searchTerm.length < 3) {
+      if (debouncedSearchTerm.length < 3) {
         setResults([])
         return
       }
       try {
         setLoading(true)
-        const response = await searchAnimeService(searchTerm)
+        const response = await searchAnimeService(debouncedSearchTerm)
         setResults(response)
       } catch (error) {
         console.error("Search Anime:", error)
@@ -27,7 +38,7 @@ export default function SearchAnimePage() {
     }
 
     fetchData()
-  }, [searchTerm])
+  }, [debouncedSearchTerm])
 
   return (
     <div

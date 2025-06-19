@@ -5,6 +5,8 @@ import { HomeLoader } from "./pages/Home/HomeLoader"
 import DiscoveryPage from "./pages/Discovery/DiscoveryPage"
 import DiscoveryLoader from "./pages/Discovery/DiscoveryLoader"
 import SearchAnimePage from "./pages/SearchAnime/SearchAnimePage"
+import DetailPage from "./pages/DetailPage/DetailPage"
+import { DetailLoader } from "./pages/DetailPage/DetailLoader"
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,11 @@ const router = createBrowserRouter([
       {
         path: "/searchanime",
         element: <SearchAnimePage />,
+      },
+      {
+        path: "/detail/:id",
+        element: <DetailPage />,
+        loader: DetailLoader,
       },
     ],
   },
