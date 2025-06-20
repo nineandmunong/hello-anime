@@ -8,7 +8,7 @@ export default function DetailPage() {
 
   return (
     <div>
-      <div className="ms-5 mt-4">
+      <div className="ms-4 mt-4">
         <button
           onClick={() => navigate(-1)}
           className="btn btn-outline-primary rounded-pill px-4 mb-3"
