@@ -13,12 +13,11 @@ export default function HomePage() {
       {/* Carousel Section  */}
       <section>
         <div
-          className="ms-md-5 ms-4 ps-lg-5 pt-3"
+          className="ms-3 ps-lg-5 pt-3"
           style={{
             fontWeight: "700",
             fontSize: "1.5rem",
             color: "#ff758c",
-            paddingRight: "10px",
           }}
         >
           Coming Soon...
@@ -43,7 +42,7 @@ export default function HomePage() {
       <section className="bg-dark px-1 text-white">
         <div className="m-1">
           <div className="row">
-            <div className="col-12 col-md-2 mt-5 pt-2 ps-2">
+            <div className="col-12 col-xl-2 mt-5 pt-2 ps-2">
               <SideBar />
             </div>
             <div className="col mt-5">
@@ -61,4 +60,3 @@ export default function HomePage() {
     </div>
   )
 }
-//save

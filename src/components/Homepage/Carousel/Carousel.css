@@ -4,9 +4,12 @@
 
 .slide {
   position: relative;
-  width: 90%;
   height: 90%;
-  scale: 0.9;
+  width: 100%;
+  max-width: 1080px;
+  margin: 1% 3%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 @keyframes fadeInOut {
@@ -80,16 +83,17 @@
   }
 
   .slideBtn {
-    width: 40px; /* ลดความกว้างของปุ่ม */
+    width: 40px;
   }
 
   .selectSlideBtn {
     bottom: 12%;
-    left: 30%;
-    gap: 10%;
+    left: 50%;
+    translate: -50%;
+    gap: 0.8rem;
   }
 
   .imgSlideBtn {
-    scale: 0.7;
+    scale: 0.8;
   }
 }

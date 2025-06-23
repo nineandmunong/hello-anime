@@ -121,13 +121,37 @@ export default function Random() {
                 <div className="col-lg-8">
                   <div className="p-4">
                     <div className="mb-3">
-                      <span className="badge bg-success me-2">
+                      <span
+                        className="badge badge-square badge-light me-2"
+                        style={{
+                          backgroundColor: "rgb(34, 115, 22)",
+                          width: "100px",
+                          height: "25px",
+                          fontSize: "14px",
+                        }}
+                      >
                         Score: {anime.data.score || "N/A"}
                       </span>
-                      <span className="badge bg-info me-2">
+                      <span
+                        className="badge badge-square badge-light me-2"
+                        style={{
+                          backgroundColor: "rgba(255, 82, 249, 0.96)",
+                          width: "100px",
+                          height: "25px",
+                          fontSize: "14px",
+                        }}
+                      >
                         Episodes: {anime.data.episodes || "N/A"}
                       </span>
-                      <span className="badge bg-warning text-dark">
+                      <span
+                        className="badge badge-square badge-light me-2"
+                        style={{
+                          backgroundColor: "rgb(227, 190, 27)",
+                          width: "100px",
+                          height: "25px",
+                          fontSize: "14px",
+                        }}
+                      >
                         Year: {anime.data.year || "N/A"}
                       </span>
                       <div className="mt-3">
