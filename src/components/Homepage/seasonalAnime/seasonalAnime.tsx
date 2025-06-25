@@ -17,7 +17,7 @@ const colors: { [key: string]: string } = {
 
 export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
   return (
-    <div className="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 ">
+    <div className="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4 ">
       {anime.map((item, index) => (
         <div className="col d-flex" key={item.mal_id}>
           <div className="card h-100 w-100 d-flex flex-column anime-card">
@@ -62,7 +62,7 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
                 <h6 className="text-primary my-1">
                   🎞️ {item.studios[0].name || "Unknown Studio"}
                 </h6>
-                <div style={{ marginTop: "5px" }}>
+                <div style={{ marginTop: "5px", marginBottom: "8px" }}>
                   <span style={{ fontSize: "16px" }}>{item.status} * </span>
                   <span className="text-success" style={{ fontSize: "16px" }}>
                     {item.episodes != null
@@ -72,7 +72,7 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
                 </div>
               </div>
 
-              <div>
+              <div className="mb-1">
                 {item.genres.slice(0, 3).map((genres) => (
                   <span
                     className="badge rounded-pill text-white"
@@ -80,7 +80,7 @@ export default function SeasonalAnime({ anime }: SeasonalAnimeProps) {
                     style={{
                       backgroundColor: colors[genres.name] || "#7f8c8d",
                       fontSize: "12px",
-                      margin: "10px 2px",
+                      margin: "0px 5px 5px 0px",
                       padding: "6px 10px",
                     }}
                   >
