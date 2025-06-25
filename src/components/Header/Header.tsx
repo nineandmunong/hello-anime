@@ -56,8 +56,8 @@ export default function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link link-body-emphasis" href="#">
-                Menu4
+              <a className="nav-link link-body-emphasis" href="/game">
+                👾Mini Game
               </a>
             </li>
           </ul>

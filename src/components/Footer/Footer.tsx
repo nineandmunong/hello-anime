@@ -70,9 +70,9 @@ export default function Footer() {
               <li className="mb-2">
                 <Link
                   className="text-light text-decoration-none footer-link "
-                  to="/home"
+                  to="/game"
                 >
-                  Home
+                  Mini Game
                 </Link>
               </li>
             </ul>
