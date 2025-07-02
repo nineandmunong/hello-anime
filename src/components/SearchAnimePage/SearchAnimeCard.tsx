@@ -8,11 +8,11 @@ interface SearchAnimeCardProps {
 
 export default function SearchAnimeCard({ data }: SearchAnimeCardProps) {
   return (
-    <div className="row">
+    <div className="row ">
       {data.map((animeItem, index) => (
         <div
           key={animeItem.mal_id}
-          className="col-12 col-sm-6 col-lg-4 mb-4"
+          className="col-6 col-lg-4 mb-4 "
           style={{
             animation: `cardIn 0.8s ease-in-out ${index * 0.1}s both`,
           }}
