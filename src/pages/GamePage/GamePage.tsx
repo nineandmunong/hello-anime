@@ -1,12 +1,11 @@
 import { useState } from "react"
-import EmojiGame from "../../components/GamePage/EmojiGame"
 import { emojiGameData } from "../../data/emojiGameData"
+import EmojiGame from "../../components/GamePage/EmojiGame"
 import GameResult from "../../components/GamePage/GameResult"
-
-type GameState = "welcome" | "playing" | "finish"
+import gameBackground from "../../img/arcade_game.jpg"
 
 export default function GamePage() {
-  const [gameState, setGameState] = useState<GameState>("welcome")
+  const [gameState, setGameState] = useState("welcome")
   const [questionIndex, setQuestionIndex] = useState(0)
   const [selectAnswer, setSelectAnswer] = useState<string | null>(null)
   const [score, setScore] = useState(0)
@@ -60,7 +59,12 @@ export default function GamePage() {
     if (gameState === "playing") {
       return (
         <div>
-          <div className="card-header">
+          <div
+            className="card-header"
+            style={{
+              background: " linear-gradient(to left, #00c3ff, #ffff1c)",
+            }}
+          >
             <h2 className="mb-0">
               คำถามที่ {questionIndex + 1} / {emojiGameData.length}
             </h2>
@@ -76,13 +80,9 @@ export default function GamePage() {
               <div className="mt-4 text-center">
                 {selectAnswer !== currentQuestion.answer ? (
                   <div className="alert alert-danger">
-                    {currentQuestion.explain && (
-                      <div>
-                        <strong>{currentQuestion.explain}</strong>
-                        <br />
-                      </div>
-                    )}
-                    ตอบผิดนะเฉลยคือ: <strong>{currentQuestion.answer}</strong>
+                    ตอบผิดนะ: <strong>{currentQuestion.explain}</strong>
+                    <br />
+                    เฉลยคือเรื่อง: <strong>{currentQuestion.answer}</strong>
                   </div>
                 ) : (
                   <div className="alert alert-success">ถูกต้องนะคร้าบบบ!</div>
@@ -90,7 +90,7 @@ export default function GamePage() {
                 <button className="btn btn-info" onClick={handleNextQuestion}>
                   {questionIndex < emojiGameData.length - 1
                     ? "ข้อต่อไป"
-                    : "ดูผลลัพธ์"}
+                    : "สรุปคะแนน"}
                 </button>
               </div>
             )}
@@ -102,14 +102,14 @@ export default function GamePage() {
 
     return (
       <div className="card-body text-center p-5">
-        <h1 className="card-title mb-4">Welcome To Emoji Quiz Game!!</h1>
-        <p className="card-text" style={{ fontSize: "18px" }}>
+        <h1 className="mb-4">Welcome To Emoji Quiz Game!!</h1>
+        <p style={{ fontSize: "18px" }}>
           - ให้ผู้เล่นทายชื่อเรื่อง Anime จาก Emoji
         </p>
-        <p className="card-text" style={{ fontSize: "18px" }}>
+        <p style={{ fontSize: "18px" }}>
           - ตอบถูกรับ 1 แต้ม ตอบผิดลุ้น 1 แต้มข้อหน้า
         </p>
-        <p className="card-text" style={{ fontSize: "18px" }}>
+        <p style={{ fontSize: "18px" }}>
           - คำถามมี 10 ข้อ ถ้าพร้อมแล้วกดปุ่ม "เริ่มเกม" เลย
         </p>
         <button className="btn btn-primary btn-lg" onClick={handleStartGame}>
@@ -120,8 +120,15 @@ export default function GamePage() {
   }
 
   return (
-    <div className="container my-5" style={{ height: "100vh" }}>
-      <div className="card shadow">{renderContent()}</div>
+    <div
+      className="d-flex justify-content-center align-items-center"
+      style={{
+        height: "100vh",
+        background: `url(${gameBackground})`,
+        backgroundSize: "cover",
+      }}
+    >
+      <div className="card shadow w-75">{renderContent()}</div>
     </div>
   )
 }

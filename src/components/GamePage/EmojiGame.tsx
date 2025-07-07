@@ -28,17 +28,16 @@ export default function EmojiGame({
 
   return (
     <div>
-      <div className="text-center mb-4" style={{ fontSize: "3rem" }}>
+      <div className="text-center mb-4" style={{ fontSize: "50px" }}>
         {question.question}
       </div>
 
-      <div className="d-grid gap-2">
+      <div className="d-flex flex-column gap-2">
         {question.option.map((option, index) => (
           <button
             key={index}
             className={`btn text-start p-3 ${getButtonVariant(option)}`}
             onClick={() => onAnswerSelect(option)}
-            disabled={isAnswered}
           >
             {option}
           </button>
