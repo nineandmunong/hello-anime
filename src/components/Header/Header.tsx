@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import logo from "../../img/logo/logo1.png"
+import emoji from "../../img/emoji-mashup.png"
 import { useState } from "react"
 
 export default function Header() {
@@ -11,7 +12,7 @@ export default function Header() {
       <div className="flex row justify-content-between align-items-center fs-3 border-bottom py-3">
         <div className="d-md-block d-none col-6 col-md-4 pt-1">
           <a className="link-primary link-underline-opacity-50 " href="#">
-            **Get Banana!!**
+            <img src={emoji} alt="emoji" style={{ height: "50px" }} />
           </a>
         </div>
         <div className="col-6 col-md-4 text-md-center">
