@@ -13,7 +13,7 @@ export async function HomeLoader({
   request: Request
 }): Promise<HomeLoaderResult> {
   const url = new URL(request.url)
-  const season = url.searchParams.get("season") || "spring"
+  const season = url.searchParams.get("season") || "fall"
   const year = parseInt(url.searchParams.get("year") || "2025")
 
   const seasonalAnime = await seasonalAnimeService(season, year)

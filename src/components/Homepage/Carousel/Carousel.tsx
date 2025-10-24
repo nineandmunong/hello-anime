@@ -10,6 +10,9 @@ export default function Carousel() {
   useEffect(() => {
     const fetchImages = async () => {
       const img = await upComingServices()
+      if (img) {
+        console.log("From Component>>", img)
+      }
       setImages(img)
     }
     fetchImages()
